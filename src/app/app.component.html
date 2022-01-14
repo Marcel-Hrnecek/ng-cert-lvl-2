@@ -3,12 +3,12 @@
   <div class="well">
     <h2>Enter a zipcode:</h2>
     <input class="form-control"
+           #locationInput
            placeholder="Zipcode"
-           type="text"
-           id="addLocation">
+           type="text">
     <br>
     <button class="btn btn-primary"
-            id="addLocationBtn">
+            (click)="addLocation(locationInput.value)">
       Add location
     </button>
   </div>

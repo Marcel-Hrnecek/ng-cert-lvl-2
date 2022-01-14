@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ZipCodeService } from './services/zip-code.service';
 
 @Component({
   selector: 'my-app',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  name = 'Angular';
+
+  constructor(
+    private zipCodeService: ZipCodeService
+  ) {
+  }
+
+  addLocation(value: string) {
+    if (value && value.length > 0) {
+      this.zipCodeService.addZipCode(value);
+    }
+  }
 }
