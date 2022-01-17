@@ -1,0 +1,23 @@
+<div class="container-fluid">
+
+  <div class="well">
+    <h2>Enter a zipcode:</h2>
+    <input class="form-control"
+           #locationInput
+           placeholder="Zipcode"
+           type="text">
+    <br>
+    <button class="btn btn-primary"
+            (click)="addLocation(locationInput.value)"
+            [disabled]="isLoading">
+      Add location
+    </button>
+  </div>
+
+  <app-weather-details
+      *ngFor="let weather of weatherList; trackBy: weatherTrackByFn"
+      [weatherData]="weather"
+      (closeDetails)="removeLocation($event)"
+  ></app-weather-details>
+
+</div>

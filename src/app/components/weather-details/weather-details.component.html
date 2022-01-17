@@ -9,7 +9,7 @@
       - Min {{weatherData.main.temp_min}}
     </p>
     <p>
-      <a href="/forecast/{{weatherData.zipCode}}">Show 5-day forecast for {{weatherData.name}}</a>
+      <a [routerLink]="['forecast', weatherData.zipCode]">Show 5-day forecast for {{weatherData.name}}</a>
     </p>
   </div>
   <div>
