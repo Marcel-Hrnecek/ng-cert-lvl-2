@@ -13,8 +13,8 @@
     </p>
   </div>
   <div>
-    <span class="close"
-          (click)="close()">×</span>
+    <button class="close"
+          (click)="close()">×</button>
     <ng-container [ngSwitch]="currentCondition">
       <img *ngSwitchCase="'Sun'"
            src="assets/images/weather/sun.png">
