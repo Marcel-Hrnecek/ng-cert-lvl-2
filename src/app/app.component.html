@@ -8,9 +8,16 @@
            type="text">
     <br>
     <button class="btn btn-primary"
-            (click)="addLocation(locationInput.value)">
+            (click)="addLocation(locationInput.value)"
+            [disabled]="isLoading">
       Add location
     </button>
   </div>
+
+  <app-weather-details
+      *ngFor="let weather of weatherList; trackBy: weatherTrackByFn"
+      [weatherData]="weather"
+      (closeDetails)="removeLocation($event)"
+  ></app-weather-details>
 
 </div>
