@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-weather-details',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherDetailsComponent implements OnInit {
 
-  constructor() { }
+  @Input() weatherData: WeatherData;
+  @Output() closeDetails: EventEmitter<string> = new EventEmitter<string>();
+
+  currentCondition: string;
 
   ngOnInit(): void {
+    this.currentCondition = this.weatherData.weather[0]?.main;
   }
 
+  close() {
+    this.closeDetails.emit(this.weatherData.zipCode);
+  }
 }
