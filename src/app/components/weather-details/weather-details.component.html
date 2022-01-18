@@ -14,17 +14,11 @@
   </div>
   <div>
     <button class="close"
-          (click)="close()">×</button>
-    <ng-container [ngSwitch]="currentCondition">
-      <img *ngSwitchCase="'Sun'"
-           src="assets/images/weather/sun.png">
-      <img *ngSwitchCase="'Snow'"
-           src="assets/images/weather/snow.png">
-      <img *ngSwitchCase="'Rain'"
-           src="assets/images/weather/rain.png">
-      <img *ngSwitchCase="'Clouds'"
-           src="assets/images/weather/clouds.png">
-      <!-- TODO: Default image -->
-    </ng-container>
+            (click)="close()">
+      ×
+    </button>
+    <app-weather-icon
+        [condition]="currentCondition"
+    ></app-weather-icon>
   </div>
 </div>
