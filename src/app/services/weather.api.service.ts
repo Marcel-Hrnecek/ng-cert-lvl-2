@@ -9,7 +9,7 @@ export class WeatherService {
 
   // TODO: Move into environment files
   private static readonly OW_API_KEY = '5a4b2d457ecbef9eb2a71e480b947604';
-  private static readonly OW_API_BASE_URL = 'http://api.openweathermap.org/data/2.5/weather';
+  private static readonly OW_API_BASE_URL = 'http://api.openweathermap.org/data/2.5';
 
   constructor(
     private http: HttpClient
@@ -27,7 +27,15 @@ export class WeatherService {
       );
   }
 
+  getForecastByZipCode(zipCode: string, dayCount = 5): Observable<ForecastData> {
+    return this.http.get<ForecastData>(this.buildForecastUrl(`cnt=${dayCount}&zip=${zipCode}`));
+  }
+
   private buildWeatherUrl(params: string): string {
-    return `${WeatherService.OW_API_BASE_URL}?appid=${WeatherService.OW_API_KEY}&units=imperial&${params}`;
+    return `${WeatherService.OW_API_BASE_URL}/weather?appid=${WeatherService.OW_API_KEY}&units=imperial&${params}`;
+  }
+
+  private buildForecastUrl(params: string): string {
+    return `${WeatherService.OW_API_BASE_URL}/forecast/daily?appid=${WeatherService.OW_API_KEY}&units=imperial&${params}`;
   }
 }
