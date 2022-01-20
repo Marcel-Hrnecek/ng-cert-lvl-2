@@ -13,7 +13,7 @@ export class WeatherOverviewComponent implements OnInit, OnDestroy {
   readonly subscriptions: { [key: string]: Subscription } = {};
 
   isLoading: boolean;
-  weatherList: WeatherData[];
+  weatherList: WeatherData[] = [];
 
   constructor(
     private zipCodeService: ZipCodeService,
