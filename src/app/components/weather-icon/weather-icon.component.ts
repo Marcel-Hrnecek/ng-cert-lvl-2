@@ -2,7 +2,8 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-weather-icon',
-  templateUrl: './weather-icon.component.html'
+  templateUrl: './weather-icon.component.html',
+	styleUrls: ['./weather-icon.component.less']
 })
 export class WeatherIconComponent implements OnChanges {
 
@@ -21,8 +22,7 @@ export class WeatherIconComponent implements OnChanges {
       //   this.imageName = 'sun';
       // }
       if (!WeatherIconComponent.SUPPORTED_IMAGES.includes(this.imageName)) {
-        // TODO: Default image for unsupported weather conditions
-        this.imageName = null;
+        this.imageName = 'default';
       }
     }
   }
